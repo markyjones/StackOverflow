@@ -14,9 +14,10 @@ namespace WebApiSelfHostWithRpcActionRoute
         {
             // Set up server configuration 
             HttpSelfHostConfiguration config = new HttpSelfHostConfiguration("http://localhost:8080");
-
+            
             config.Routes.MapHttpRoute("API Default", "api/{controller}/{id}", new { id = RouteParameter.Optional });
-            config.Routes.MapHttpRoute("API RPC Style", "api/{controller}/{action}", new { id = RouteParameter.Optional });
+            config.Routes.MapHttpRoute("API RPC Style", "api/{controller}/{action}", new { });
+
 
             using (HttpSelfHostServer server = new HttpSelfHostServer(config))
             {

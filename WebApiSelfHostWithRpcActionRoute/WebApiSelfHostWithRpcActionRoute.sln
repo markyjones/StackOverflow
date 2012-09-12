@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSelfHostWithRpcActionRoute", "WebApiSelfHostWithRpcActionRoute\WebApiSelfHostWithRpcActionRoute.csproj", "{1CBC0812-6EDD-42C0-A588-3D94A59BF66A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSelfHostWithRpcActionRoute.Test", "WebApiSelfHostWithRpcActionRoute.Test\WebApiSelfHostWithRpcActionRoute.Test.csproj", "{46D9BF95-C932-4D47-8CC1-7DEC64EB8E78}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{1CBC0812-6EDD-42C0-A588-3D94A59BF66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CBC0812-6EDD-42C0-A588-3D94A59BF66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CBC0812-6EDD-42C0-A588-3D94A59BF66A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{46D9BF95-C932-4D47-8CC1-7DEC64EB8E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46D9BF95-C932-4D47-8CC1-7DEC64EB8E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46D9BF95-C932-4D47-8CC1-7DEC64EB8E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46D9BF95-C932-4D47-8CC1-7DEC64EB8E78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

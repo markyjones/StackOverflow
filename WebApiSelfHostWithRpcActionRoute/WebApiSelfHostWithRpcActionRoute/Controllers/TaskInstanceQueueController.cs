@@ -16,6 +16,7 @@ namespace WebApiSelfHostWithRpcActionRoute.Controllers
             Console.WriteLine("Method entered!" + id);
         }
 
+        [HttpPost]
         public void Queue(TaskInstance taskInstance)
         {
             // Do something with my taskInstance
