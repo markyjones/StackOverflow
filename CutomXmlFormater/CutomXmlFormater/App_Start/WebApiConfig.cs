@@ -16,7 +16,7 @@ namespace CutomXmlFormater
             );
 
 
-            config.Formatters.XmlFormatter.UseXmlSerializer = true;
+           // config.Formatters.XmlFormatter.UseXmlSerializer = true;
         }
     }
 }

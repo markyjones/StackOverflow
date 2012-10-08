@@ -8,10 +8,10 @@ using System.Web.Http;
 
 namespace CutomXmlFormater.Controllers
 {
-    //[DataContract(Namespace = "")]
+    [DataContract(Namespace = "")]
     public class Foo
     {
-        //[DataMember]
+        [DataMember]
         public string Bar { get; set; }
     }
 
@@ -22,5 +22,13 @@ namespace CutomXmlFormater.Controllers
         {
             return new Foo() { Bar = "Test" };
         }
+
+        // GET api/foos
+        public void Post(Foo foo)
+        {
+            var input = foo;
+        }
     }
+
+
 }
