@@ -1,40 +1,42 @@
-﻿using Ninject.Activation;
-using Ninject.Parameters;
-using Ninject.Syntax;
+﻿
+using Ninject;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http.Dependencies;
-
 namespace NinjectIssue
 {
     public class NinjectDependencyScope : IDependencyScope
     {
-        protected IResolutionRoot resolutionRoot;
+        Ninject.Syntax.IResolutionRoot resolver;
 
-        public NinjectDependencyScope(IResolutionRoot kernel)
+        public NinjectDependencyScope(Ninject.Syntax.IResolutionRoot resolver)
         {
-            resolutionRoot = kernel;
+            this.resolver = resolver;
         }
 
-        public object GetService(Type serviceType)
+        public object GetService(System.Type serviceType)
         {
-            IRequest request = resolutionRoot.CreateRequest(serviceType, null, new Parameter[0], true, true);
-            return resolutionRoot.Resolve(request).SingleOrDefault();
+            if (resolver == null)
+                throw new ObjectDisposedException("this", "This scope has been disposed");
+
+            var resolved = this.resolver.TryGet(serviceType);
+            return resolved;
         }
 
-        public IEnumerable<object> GetServices(Type serviceType)
+        public System.Collections.Generic.IEnumerable<object> GetServices(System.Type serviceType)
         {
-            IRequest request = resolutionRoot.CreateRequest(serviceType, null, new Parameter[0], true, true);
-            return resolutionRoot.Resolve(request).ToList();
+            if (resolver == null)
+                throw new ObjectDisposedException("this", "This scope has been disposed");
+
+            return this.resolver.GetAll(serviceType);
         }
 
         public void Dispose()
         {
-            IDisposable disposable = (IDisposable)resolutionRoot;
-            if (disposable != null) disposable.Dispose();
-            resolutionRoot = null;
+            IDisposable disposable = resolver as IDisposable;
+            if (disposable != null)
+                disposable.Dispose();
+
+            resolver = null;
         }
     }
 }
