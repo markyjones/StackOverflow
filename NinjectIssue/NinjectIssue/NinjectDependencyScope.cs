@@ -18,7 +18,7 @@ namespace NinjectIssue
             if (resolver == null)
                 throw new ObjectDisposedException("this", "This scope has been disposed");
 
-            var resolved = this.resolver.TryGet(serviceType);
+            var resolved = this.resolver.Get(serviceType);
             return resolved;
         }
 
