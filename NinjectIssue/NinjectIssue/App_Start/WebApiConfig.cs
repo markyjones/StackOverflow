@@ -9,9 +9,32 @@ namespace NinjectIssue
     {
         public static void Register(HttpConfiguration config)
         {
+  
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
+             name: "ProfileRestApi",
+             routeTemplate: "api/profile/{id}",
+             defaults: new { id = RouteParameter.Optional, Controller = "Profile" }
+             );
+
+          
+            config.Routes.MapHttpRoute(
+                name: "PrfileRpcApi",
+                routeTemplate: "api/profile/{action}/{rpcId}",
+                defaults: new { Controller = "Profile" }
+            );
+
+           
+
+          
+            config.Routes.MapHttpRoute(
+                name: "DefaultRestApi",
                 routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "DefaultRpcApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

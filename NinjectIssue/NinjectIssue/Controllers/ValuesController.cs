@@ -9,10 +9,7 @@ namespace NinjectIssue.Controllers
 {
     public class ValuesController : ApiController
     {
-        public ValuesController(ISecurityService securityService)
-        {
-            var testIAmNotNull = securityService;
-        }
+    
 
         // GET api/values
         public IEnumerable<string> Get()

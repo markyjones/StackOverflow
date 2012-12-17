@@ -46,7 +46,7 @@ namespace NinjectIssue.App_Start
             
             RegisterServices(kernel);
 
-            GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
+           // GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
        
             return kernel;
         }
@@ -57,7 +57,7 @@ namespace NinjectIssue.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ISecurityService>().To<SecurityServiceImplementation>();
+            kernel.Bind<ISecurityService>().To<SecurityServiceImplementation>().InRequestScope();
 
         }        
     }
