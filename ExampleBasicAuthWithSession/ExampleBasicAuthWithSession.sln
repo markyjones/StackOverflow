@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleBasicAuthWithSession", "ExampleBasicAuthWithSession\ExampleBasicAuthWithSession.csproj", "{99F2CEC1-BC74-4E3F-B8AC-B3680E40AF59}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6EEBF395-773A-4096-82C9-A0FA59FE6D89}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99F2CEC1-BC74-4E3F-B8AC-B3680E40AF59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F2CEC1-BC74-4E3F-B8AC-B3680E40AF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F2CEC1-BC74-4E3F-B8AC-B3680E40AF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F2CEC1-BC74-4E3F-B8AC-B3680E40AF59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,107 @@
+﻿<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Example Js</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div id="container">
+		<header>
+            <div id="title">
+                <h1>Example Login</h1>
+            </div>
+		</header>
+
+		<div id="main" role="main">
+            <fieldset>
+                <label for="username">Username</label>
+                <input id="username" type="text" />
+                <label for="password">Password</label>
+                <input id="password" type="password" />
+                <input id="login" type="button" value="login"/>
+            </fieldset>
+            </br>
+            <fieldset>
+                <label for="get">Click here to try get some data</label>
+                <input id="get" type="button" value="get" />
+                <label for="username">Result</label>
+                <input id="data" type="textarea" />
+            </fieldset>
+		</div>
+
+
+		<footer>
+
+		</footer>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript" >
+
+        //http://stackoverflow.com/questions/5507234/how-to-use-basic-auth-and-jquery-and-ajax
+    
+
+        $("#login").click(function() {
+            var username = $("input#username").val();
+            var password = $("input#password").val(); 
+            
+            $.ajax({
+              type: "POST",
+              url: "api/token",
+              dataType: 'json',
+              async: false,
+              headers: {"Authorization": "Basic " + btoa(username + ":" + password)},
+              success: function (data){
+                    console.log(data.access_token);
+                    
+                    alert("Sucess you now have a token and should be able to click to get data");
+
+                    $.ajaxSetup({
+                      headers: {
+                        'Authorization': "Session " + data.access_token
+                      }
+                    });
+              },
+              statusCode: {
+				401: function() {
+					alert("Unauthorised expect username to be equal to password e.g. foo & foo");
+				}
+              }
+            });
+        });
+
+        $("#get").click(function() {
+    
+            $.ajax({
+              type: "GET",
+              url: "api/protectedresource",
+              dataType: 'json',
+              async: false,
+              success: function (data){
+
+                  $('#data').val(data);
+
+              },
+              statusCode: {
+				401: function() {
+					alert("Unauthorised please log in via basic first");
+				}
+			},
+            });
+        });
+
+
+        
+
+    </script>
+</body>
+</html>
